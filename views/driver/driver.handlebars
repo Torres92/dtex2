@@ -1,0 +1,146 @@
+<!--/banner-->
+  <div class="top-bar_sub_w3layouts container-fluid">
+      <div class="row">
+        
+        <div class="col-md-4 col-sm-6 log-icons mt-2">
+          <p class="py-2"><i class="fas fa-phone"></i> Call Taxi : 12(00) 123 1234</p>
+        </div>
+        
+        <div class="col-md-4 col-sm-6 logo">
+          <a class="navbar-brand" href="/">
+            <i class="fa fa-motorcycle"></i> DT express</a>
+        </div>
+        
+
+
+            <div class="col-md-4 top-forms mt-md-3 mt-2 mb-md-0 mb-3">
+              <span class="mx-lg-4 mx-md-2  mx-1">
+                <a href="/driver"  aria-pressed="false">
+                  <i class="fas fa-lock"></i> Perfil</a>
+              </span>
+              <span>
+
+                <a href="/users/logout"  >
+                  <i class="fas fa-user"></i> Cerrar Sesión</a>
+              </span>
+            </div>
+
+    
+
+
+      </div>
+    </div>
+
+<div class="container">
+ <h2 class="page-header">Dashboard</h2>
+<h1>Bienvenido {{ user.role }} {{ user.name }} </h1>
+</div>  
+
+
+<div class="container-fluid">
+
+<div class="row">
+
+    <div class="col-md-12">
+      <table class="table table-bordered table-hover table-responsive">
+        <thead>
+          <tr>
+            <th>Estado</th>
+            <th>Solicitante</th>
+            <th>Origen</th>
+            <th>Llegada</th>
+            <th>Descripcion</th>
+            <th>Recogido</th>
+            <th>Entregado</th>
+          </tr>
+        </thead>
+          {{#if services}}
+        <tbody>
+ 
+            {{#each services}}
+
+              <tr>
+                <td>
+                {{#if meta.driver}}
+                asignado
+                {{else}}
+
+                  <a href="/driver/assign?id={{_id}}&driver={{../user._id}}" class="btn btn-success">
+                asignar</a>
+                {{/if}}
+                </td>
+                <td>{{ meta.applicant }}</td>
+                <td>{{ ori }}</td>
+                <td>{{ dest }}</td>
+                <td>{{ desc }}</td>
+                <td>
+              {{#if meta.driver}}
+                {{#if status }}   
+                <a href="/driver/turn/{{_id}}" class="btn btn-success">
+                Tomar</a>
+                  {{else}}
+                   {{ meta.hrRe }}
+                {{/if}}
+              {{else}}
+                <button class="btn btn-success">Tomar</button>
+              {{/if}}
+                </td>
+           
+                <td>  
+                {{#if status }}
+                  <button class="btn btn-success">Entregar</button>
+                {{else}}  
+                 {{#if completed}}
+                   {{ meta.hrEn }}
+                 {{else}}
+                    <a href="/driver/edit/{{_id}}" class="btn btn-success">
+                    Entregar</a>
+                 {{/if}}
+                {{/if}} 
+                </td>
+              </tr>
+            {{/each}}
+        </tbody>
+          {{else}}
+          <tbody> 
+          <tr> 
+            <div class="container">
+              <h4>EN ESTE MOMENTO NO HAY SOLICITUDES DE SERVICIO</h4>
+            </div>
+            </tr> 
+          </tbody> 
+          {{/if}}
+      </table>      
+    </div>
+<!--
+    <div class="col-md-5">
+      <h4>SOLICITUD DE SERVICIOS</h4>
+    <form method="post" action="/add">
+      <div class="form-group">
+          <label for="applicant">Nombre de Compañia</label>
+          <input type="text" name="applicant" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Lugar de recojo:</label>
+        <textarea class="form-control" name="ori" id="" cols="80"placeholder="Sea lo más especifico por favor"></textarea>
+      </div>
+       <div class="form-group">
+        <label>Sitio de entrega:</label>
+        <textarea name="dest" id="" class="form-control" cols="80" placeholder="Sea lo más especifico por favor"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Escriba una descripcion del pedido:</label>
+        <textarea name="desc" id=""  cols="80" class="form-control" placeholder="Sea lo más especifico por favor"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Add</button>
+    </form>
+  </div>
+-->  
+
+
+      
+</div>
+</div>
+    <!--table -->
+
+

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DT express || Tu mejor servicio de entregas</title>
+  <!-- Meta tag Keywords -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+  <meta charset="utf-8">
+  <meta name="keywords" />
+  <script type="application/x-javascript">
+    addEventListener("load", function () {
+      setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+      window.scrollTo(0, 1);
+    }
+  </script>
+  <!--// Meta tag Keywords -->
+
+  <link rel="stylesheet" href="../css/owl.carousel.css" type="text/css" media="all">
+  <link rel="stylesheet" href="../css/owl.theme.css" type="text/css" media="all">
+  <!-- css files -->
+  <link rel="stylesheet" href="../css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="all" /> <!-- Style-CSS --> 
+  <link rel="stylesheet" href="../css/fontawesome-all.css"> <!-- Font-Awesome-Icons-CSS -->
+  <!-- //css files -->
+
+  <!-- web-fonts -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+  <!-- //web-fonts -->
+  
+</head>
+<body>
+
+<!--/banner-->
+  <div class="top-bar_sub_w3layouts container-fluid">
+      <div class="row">
+        
+        <div class="col-md-4 col-sm-6 log-icons mt-2">
+          <p class="py-2"><i class="fas fa-phone"></i> Call Taxi : 12(00) 123 1234</p>
+        </div>
+        
+        <div class="col-md-4 col-sm-6 logo">
+          <a class="navbar-brand" href="/">
+            <i class="fa fa-motorcycle"></i> DT express</a>
+        </div>
+        
+        
+
+            <div class="col-md-4 top-forms mt-md-3 mt-2 mb-md-0 mb-3">
+              <span class="mx-lg-4 mx-md-2  mx-1">
+                <a href="/company"  aria-pressed="false">
+                  <i class="fas fa-lock"></i> Perfil</a>
+              </span>
+                <span>
+                  <a href="/company/add">
+                    <i class="fas fa-user"></i> Solicitar</a>
+                </span>
+              <span>
+                <a href="/users/logout"  >
+                  <i class="fas fa-user"></i> Cerrar Sesión</a>
+              </span>
+            </div>
+
+      </div>
+    </div>	
+<!--solicitud de servicios-->
+<section class="bookingform py-5">
+	<div class="container py-md-5 py-3">
+		<h1 class="heading text-capitalize text-center">Solicita tus servicios</h1>
+		<h5 class="heading mb-5 text-center">Dt Express</h5>
+		<div class="row">
+			<div class="col-lg-6 book-appointment p-sm-5 py-5 px-4">
+				<h2>Personal Details</h2>
+				<div class="book-agileinfo-form">
+					<form action="#" method="post">
+						<div class="row main-agile-sectns">
+							<div class="col-md-6 agileits-btm-spc form-text1">
+								<input type="text" name="Name" placeholder="Full Name" required="">
+							</div>
+							<div class="col-md-6 agileits-btm-spc form-text2">
+								<input type="text" name="Phone no" placeholder="Phone number" required="">
+							</div>
+						</div>
+						<div class="row ">
+							<div class="col-md-6 agileits-btm-spc form-text1">
+								<input type="email" name="email" placeholder="Email" required="">
+							</div>
+							<div class="col-md-6">
+								<div class="agileits-btm-spc">
+									<select id="cab" onchange="change_country(this.value)" class="frm-field required sect">
+										<option value="">Select Cab</option>
+										<option value="">Mini</option>
+										<option value="">Sedan</option>
+										<option value="">Elite</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="clear"></div>
+						<h2 class="sub-head-w3ls">Booking Details</h2>
+						<div class="row main-agile-sectns">
+							<div class="col-md-6 agileits-btm-spc form-text1">
+								<input id="datepicker" name="Text" type="text" placeholder="Pick-up Date" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"
+									required="">
+							</div>
+							<div class="col-md-6 agileits-btm-spc form-text2">
+								<input type="text" id="timepicker" name="Time" class="timepicker form-control" placeholder="Pick-up Time" value="">
+							</div>
+						</div>
+						<div class="row main-agile-sectns">
+							<div class="col-md-6 agileits-btm-spc form-text1">
+								<input type="text" name="Pick-up Location" placeholder="Pick-up Location" required="">
+							</div>
+							<div class="col-md-6 agileits-btm-spc form-text2">
+								<input type="text" name="Drop-off Location" placeholder="Drop-off Location" required="">
+							</div>
+						</div>
+
+						<div class="main-agile-sectns">
+							<div class="agileits-btm-spc">
+								<select id="passengers" onchange="change_country(this.value)" class="frm-field required sect">
+									<option value="">No.of Passengers</option>
+									<option value="">1</option>
+									<option value="">2</option>
+									<option value="">3</option>         
+									<option value="">4</option>
+									<option value="">5</option>
+								</select>
+							</div>
+							<div class="agileits-btm-spc form-text2">
+								<select id="direction" onchange="change_country(this.value)" class="frm-field required">
+									<option value="">Direction</option>
+									<option value="">One Way</option>
+									<option value="">Return</option>       
+								</select>
+							</div>
+						</div>
+						<input type="submit" value="Book Now">
+						<input type="reset" value="Reset">
+					</form>
+				</div>
+			</div>
+			<div class="col-lg-6 mt-md-5">
+				<img src="../images/car1.png" alt="" class="img-fluid" />
+				<img src="../images/car2.png" alt="" class="img-fluid" />
+			</div>
+		</div>
+	</div>
+</section>	
+<!-- //Booking -->
+    <!-- js-scripts -->   
+
+  <!-- js -->
+  <script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.js"></script> <!-- Necessary-JavaScript-File-For-Bootstrap --> 
+  <!-- //js -->
+  
+  <!-- carousel -->
+  <script src="../js/owl.carousel.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        responsiveClass: true,
+        responsive: {
+          0: {
+            items: 1,
+            nav: true
+          },
+          600: {
+            items: 1,
+            nav: false
+          },
+          900: {
+            items: 2,
+            nav: false
+          },
+          1000: {
+            items: 3,
+            nav: true,
+            loop: false,
+            margin: 20
+          }
+        }
+      })
+    })
+  </script>
+  <!--//carousel -->
+
+  <!--//slider-->
+  <script src="js/responsiveslides.min.js"></script>
+  <script>
+    $(function () {
+      // Slideshow 1
+      $("#slider1").responsiveSlides({
+        auto: true,
+        pager: true,
+        nav: true,
+        speed: 500,
+        namespace: "centered-btns"
+      });
+    });
+  </script>
+  <!--//slider-->
+
+  <!--// start-smoth-scrolling -->
+
+  <script src="../js/SmoothScroll.min.js"></script>
+  <script type="text/javascript" src="../js/move-top.js"></script>
+  <script type="text/javascript" src="../js/easing.js"></script>
+  <script type="text/javascript">
+    jQuery(document).ready(function($) {
+      $(".scroll").click(function(event){   
+        event.preventDefault();
+        $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+      });
+    });
+  </script>
+  <!-- here stars scrolling icon -->
+  <script type="text/javascript">
+    $(document).ready(function() {
+      /*
+        var defaults = {
+        containerID: 'toTop', // fading element id
+        containerHoverID: 'toTopHover', // fading element hover id
+        scrollSpeed: 1200,
+        easingType: 'linear' 
+        };
+      */
+                
+      $().UItoTop({ easingType: 'easeOutQuart' });
+                
+      });
+  </script>
+  <!-- //here ends scrolling icon -->
+  <!-- start-smoth-scrolling -->
+  
+<!-- //js-scripts -->
+
+</body>
+</html>

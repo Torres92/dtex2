@@ -1,0 +1,208 @@
+
+<!--/banner-->
+  <div class="top-bar_sub_w3layouts container-fluid">
+      <div class="row">
+        
+        <div class="col-md-4 col-sm-6 log-icons mt-2">
+          <p class="py-2"><i class="fas fa-phone"></i> Call Taxi : 12(00) 123 1234</p>
+        </div>
+        
+        <div class="col-md-4 col-sm-6 logo">
+          <a class="navbar-brand" href="/">
+            <i class="fa fa-motorcycle"></i> DT express</a>
+        </div>
+        
+        
+        {{#if user}}
+
+            <div class="col-md-4 top-forms mt-md-3 mt-2 mb-md-0 mb-3">
+              <span class="mx-lg-4 mx-md-2  mx-1">
+                <a href="/profile"  aria-pressed="false">
+                  <i class="fas fa-lock"></i> Perfil</a>
+              </span>
+              <span>
+                <span>
+                  <a data-toggle="modal" data-target="#exampleModal1" >
+                    <i class="fas fa-user"></i> Registrar</a>
+                </span>
+                <a href="/users/logout"  >
+                  <i class="fas fa-user"></i> Cerrar Sesión</a>
+              </span>
+            </div>
+                {{else}}
+
+    
+
+        <div class="col-md-4 top-forms mt-md-3 mt-2 mb-md-0 mb-3">
+          <span class="mx-lg-4 mx-md-2  mx-1">
+            <a data-toggle="modal" aria-pressed="false" data-target="#exampleModal">
+              <i class="fas fa-lock"></i> Iniciar Sesión</a>
+          </span>
+          <span>
+            <a data-toggle="modal" data-target="#exampleModal1" >
+              <i class="fas fa-user"></i> Registrar</a>
+          </span>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+
+<div class="container">
+ <h2 class="page-header">Dashboard</h2>
+<h1>Bienvenido {{ user.role }} {{ user.name }} </h1>
+</div>  
+
+
+<div class="container">
+
+{{#if errors}}
+          {{#each errors}}
+            <div class="alert alert-danger">{{msg}}</div>
+          {{/each}}
+{{/if}}
+<div class="row">
+
+  <div class="col-md-3">
+     <div class="card">
+       <div class="card-body">
+         <h5>Hello Menu</h5>
+         <ul>
+           <li>Servicios</li>
+           <li>Conductores</li>
+           <li>Compañia</li>
+         </ul>
+       </div>
+     </div>
+    </div>
+    
+    <div class="col-md-9">
+          {{#if services}}
+      <table class="table table-bordered table-hover table-responsive">
+        <thead>
+          <tr>
+            <th>Solicitante</th>
+            <th>Origen</th>
+            <th>Llegada</th>
+            <th>Descripcion</th>
+            <th>Recogido</th>
+            <th>Entregado</th>
+            {{#if status}}
+            <th>Acción</th>
+            {{/if}}
+          </tr>
+        </thead>
+        <tbody>
+           {{#each services}}
+            
+            <tr>
+              <td>{{ meta.applicant }}</td>
+              <td>{{ ori }}</td>
+              <td>{{ dest }}</td>
+              <td>{{ desc }}</td>
+              <td>
+                {{#if status }}En proceso
+                {{else}}
+                 {{ meta.hrRe}}
+                {{/if}}</td>
+              <td>
+                {{#if completed }}
+                 {{ meta.hrEn}}
+                {{else}}
+                En proceso
+                {{/if}}
+              </td>  
+                {{#if status}}
+              <td>
+                <a href="/admin/delete/{{_id}}" class="btn btn-danger" >Eliminar</a>
+              </td>
+                {{/if}}
+            </tr>
+          {{/each}}
+        </tbody>
+
+      </table>
+          {{else}}
+          <div class="container">
+            <h2><strong>EN ESTE MOMENTO NO HAY SOLICITUDES DE SERVICIO</strong></h4>
+          </div>    
+          {{/if}}    
+    </div>
+
+
+
+      
+</div>
+<div class="row">
+  <div class="col-md-12">
+    {{#each users}}
+    <div class="">{{name}}</div>
+    <div class="">{{tlf}}</div>
+    <div>{{role}}</div>
+    {{/each}}
+  </div>
+</div>
+</div>
+
+<!-- REGISTER MODAL -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">Register your account</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="/admin/register">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Nombre</label>
+            <input type="text" class="form-control" placeholder="Name" name="name" required="">
+          </div>
+          <div class="form-group">
+            <label>Nombre de usuario</label>
+            <input type="text" class="form-control" placeholder="Username" name="username" required="">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Dni:</label>
+            <input type="text" class="form-control" placeholder="Dni" name="dni" id="recipient-rname" required="">
+          </div>
+          <div class="form-group">
+            <label>Número de contacto</label>
+            <input type="text" class="form-control" placeholder="Telefono de contacto" name="tlf" required="">
+          </div>
+          <div class="form-group">
+            <label for="recipient-email" class="col-form-label">Email</label>
+            <input type="email" class="form-control" placeholder="Email" name="email" id="recipient-email" required="">
+          </div>
+           <div class="form-group">
+          <label for="exampleFormControlSelect1">Elige un rol</label>
+          <select class="form-control" name="role" id="exampleFormControlSelect1" required="">
+            <option>ADMINISTRADOR</option>
+            <option>EMPRESA</option>
+            <option>CONDUCTOR</option>
+          </select>
+        </div>
+          <div class="form-group">
+            <label for="password1" class="col-form-label">Contraseña:</label>
+            <input type="password" class="form-control" placeholder="Password" name="password" id="password" required="">
+          </div>
+          <div class="form-group">
+            <label for="password2" class="col-form-label">Confirma Contraseña:</label>
+            <input type="password" class="form-control" placeholder="Confirmar Contraseña" name="password2" required="">
+          </div>
+          <div class="sub-w3l">
+            <div class="sub-agile">
+              <input type="checkbox" id="brand2" value="">
+              <label for="brand2" class="mb-3">
+                <span></span>I Accept to the Terms & Conditions</label>
+            </div>
+          </div>
+          <div class="right-w3l">
+            <input type="submit" class="form-control" value="Register">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
