@@ -31,6 +31,3 @@ if(process.env.NODE_ENV === 'dev'){
 
 process.env.URLDB = urlDB;
 
-
-'mongodb://Admin-user:n12345@ds061370.mlab.com:61370/dtexpress'
-
